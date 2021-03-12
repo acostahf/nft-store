@@ -12,6 +12,8 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Bmw from "../assests/bmw.jpg";
+import Painting from "../assests/painting.jpg";
+import Anime from "../assests/anime.jpg";
 import Wallpaper from "../assests/wallpaper.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -64,10 +66,18 @@ const listData = [
     rarible: "#",
   },
   {
-    title: "BMW",
+    title: "Painting",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Bmw,
+    img: Painting,
+    opensea: "https://opensea.io/",
+    rarible: "#",
+  },
+  {
+    title: "Computer Gril",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
+    img: Anime,
     opensea: "https://opensea.io/",
     rarible: "#",
   },
@@ -80,18 +90,18 @@ const listData = [
     rarible: "#",
   },
   {
-    title: "BMW",
+    title: "Painting",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Bmw,
+    img: Painting,
     opensea: "https://opensea.io/",
     rarible: "#",
   },
   {
-    title: "BMW",
+    title: "Computer Gril",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Bmw,
+    img: Anime,
     opensea: "https://opensea.io/",
     rarible: "#",
   },

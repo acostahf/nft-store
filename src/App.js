@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Display from "./components/Display";
 import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { ThemeProvider } from "@material-ui/core";
@@ -20,6 +21,7 @@ function App() {
       <div className={classes.root}>
         <Hero />
         <Display />
+        <Footer />
       </div>
     </ThemeProvider>
   );
