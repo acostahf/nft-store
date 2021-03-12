@@ -6,13 +6,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "40vh",
-    backgroundColor: "#0093E9",
-    backgroundImage: "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
     backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundBlendMode: "overlay",
   },
   container: {
     height: "50vh",
@@ -40,7 +37,7 @@ const Hero = () => {
     <div className={classes.root}>
       <Container className={classes.container}>
         <Typography className={classes.heading}>Hello,</Typography>
-        <Typography className={classes.heading}>Im Fabian,</Typography>
+        <Typography className={classes.heading}>Im Fabian</Typography>
       </Container>
     </div>
   );

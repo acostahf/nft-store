@@ -12,17 +12,14 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Bmw from "../assests/bmw.jpg";
+import Wallpaper from "../assests/wallpaper.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
-    backgroundColor: "#0093E9",
-    backgroundImage: "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-    backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    backgroundBlendMode: "overlay",
+    alignItems: "start",
   },
   container: {
     minHeight: "50vh",
@@ -35,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: "red",
     borderWidth: 1,
     borderStyle: "solid",
+    margin: 25,
   },
   heading: {
     color: "#fff",
@@ -42,12 +40,18 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "90px",
   },
   cardRoot: {
-    maxWidth: 345,
+    maxWidth: 300,
     borderRadius: "5%",
+    background: "rgba( 255, 255, 255, 0.2 )",
+    border: "solid 1px rgba(255,255,255,0.3)",
+    backgroudClip: "padding-box",
+    backdropFilter: "blur(10px )",
     margin: 20,
+    padding: 20,
   },
   media: {
     height: 300,
+    borderRadius: "5%",
   },
 }));
 const listData = [
@@ -108,15 +112,15 @@ const Display = () => {
                 // /mnt/c/Users/Acost/nft-store/public/assests/bmw.jpg
                 title={item.title}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  BMW
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {item.description}
-                </Typography>
-              </CardContent>
             </CardActionArea>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                BMW
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {item.description}
+              </Typography>
+            </CardContent>
             <CardActions>
               <Button href={item.opensea} size="small" color="primary">
                 Opensea.io

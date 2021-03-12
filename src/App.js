@@ -1,14 +1,28 @@
 import React, { Component } from "react";
 import Display from "./components/Display";
 import Hero from "./components/Hero";
+import { makeStyles } from "@material-ui/core/styles";
 
-export default class App extends Component {
-  render() {
-    return (
-      <div className="App">
+import { ThemeProvider } from "@material-ui/core";
+import theme from "./theme";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: "#0093E9",
+    backgroundImage: "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
+  },
+}));
+
+function App() {
+  const classes = useStyles();
+  return (
+    <ThemeProvider theme={theme}>
+      <div className={classes.root}>
         <Hero />
         <Display />
       </div>
-    );
-  }
+    </ThemeProvider>
+  );
 }
+
+export default App;
