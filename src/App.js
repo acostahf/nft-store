@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
+import About from "./components/About";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <Hero />
+        <About />
         <Display />
         <Footer />
       </div>

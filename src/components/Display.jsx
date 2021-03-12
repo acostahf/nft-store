@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "start",
     flexDirection: "row",
     flexWrap: "wrap",
-    borderColor: "red",
-    borderWidth: 1,
-    borderStyle: "solid",
+    // borderColor: "red",
+    // borderWidth: 1,
+    // borderStyle: "solid",
     margin: 25,
   },
   heading: {
