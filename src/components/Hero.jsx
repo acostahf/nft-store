@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "50vh",
+    height: "40vh",
     backgroundColor: "#0093E9",
     backgroundImage: "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
     backgroundSize: "cover",
