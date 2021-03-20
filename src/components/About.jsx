@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#ffffff",
   },
   about: {
-    fontWeight: "bold",
+    fontWeight: "normal",
     color: "#ffffff",
-    paddingTop: 40,
+    padding: 60,
   },
 }));
 
@@ -41,13 +41,15 @@ const About = () => {
       <Container className={classes.container}>
         <Typography variant="h4" className={classes.heading}>
           Welcome to my NFT Store! This is where you can find my NFTs and what
-          platform they can be found.{" "}
+          platform they can be found on.{" "}
         </Typography>
         <Typography variant="h6" className={classes.about}>
           {" "}
-          A little about me: Im a artist from Austin, Texas who just got
-          involved in the NFT space. I have 10 years experience making different
-          types of artworks.{" "}
+          A little about me: Im a artist from Austin who just got involved in
+          the NFT space. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Accusamus ratione ea ad tempora beatae rem nesciunt repudiandae
+          libero expedita fugit itaque omnis qui excepturi quas quisquam, ipsam
+          assumenda at possimus!.{" "}
         </Typography>
       </Container>
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Container,
@@ -14,7 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Bmw from "../assests/bmw.jpg";
 import Painting from "../assests/painting.jpg";
 import Anime from "../assests/anime.jpg";
-import Wallpaper from "../assests/wallpaper.jpg";
+import axios from "axios";
+
+// import Wallpaper from "../assests/wallpaper.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "90px",
   },
   cardRoot: {
-    maxWidth: 300,
+    width: 300,
+    height: 450,
     borderRadius: "5%",
     background: "rgba( 255, 255, 255, 0.2 )",
     border: "solid 1px rgba(255,255,255,0.3)",
@@ -55,84 +58,101 @@ const useStyles = makeStyles((theme) => ({
     height: 300,
     borderRadius: "5%",
   },
+  // buttons: {
+  //   display: "flex",
+  //   alignItems: "end",
+  //   justifyItems: "end",
+  // },
 }));
-const listData = [
-  {
-    title: "BMW",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Bmw,
-    opensea: "https://opensea.io/",
-    rarible: "#",
-  },
-  {
-    title: "Painting",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Painting,
-    opensea: "https://opensea.io/",
-    rarible: "#",
-  },
-  {
-    title: "Computer Gril",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Anime,
-    opensea: "https://opensea.io/",
-    rarible: "#",
-  },
-  {
-    title: "BMW",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Bmw,
-    opensea: "https://opensea.io/",
-    rarible: "#",
-  },
-  {
-    title: "Painting",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Painting,
-    opensea: "https://opensea.io/",
-    rarible: "#",
-  },
-  {
-    title: "Computer Gril",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
-    img: Anime,
-    opensea: "https://opensea.io/",
-    rarible: "#",
-  },
-];
-
+// const listData = [
+//   {
+//     title: "BMW",
+//     description:
+//       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
+//     img: Bmw,
+//     opensea: "https://opensea.io/",
+//     rarible: "#",
+//   },
+//   {
+//     title: "Painting",
+//     description:
+//       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
+//     img: Painting,
+//     opensea: "https://opensea.io/",
+//     rarible: "#",
+//   },
+//   {
+//     title: "Computer Gril",
+//     description:
+//       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
+//     img: Anime,
+//     opensea: "https://opensea.io/",
+//     rarible: "#",
+//   },
+//   {
+//     title: "BMW",
+//     description:
+//       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
+//     img: Bmw,
+//     opensea: "https://opensea.io/",
+//     rarible: "#",
+//   },
+//   {
+//     title: "Painting",
+//     description:
+//       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
+//     img: Painting,
+//     opensea: "https://opensea.io/",
+//     rarible: "#",
+//   },
+//   {
+//     title: "Computer Gril",
+//     description:
+//       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat sequi hic tempora aliquam ea omnis quasi a placeat fuga saepe minima, laborum eaque dicta dolor voluptas? Illum nobis et voluptatem!",
+//     img: Anime,
+//     opensea: "https://opensea.io/",
+//     rarible: "#",
+//   },
+// ];
 const Display = () => {
+  const [nfts, setNftes] = useState([]);
   const classes = useStyles();
+  const url =
+    "https://api.opensea.io/api/v1/assets?owner=0x5650f0cb12ea1b7bda6ceab0a4c8183f7f92257d&order_direction=desc&offset=0&limit=200&collection=wrapped-mooncatsrescue";
+
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((res) => {
+        console.log(res);
+        setNftes(res.data.assets);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className={classes.root}>
       <Container className={classes.container}>
-        {listData.map((item) => (
+        {nfts.map((item) => (
           <Card className={classes.cardRoot}>
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image={item.img}
+                image={item.image_preview_url}
                 // /mnt/c/Users/Acost/nft-store/public/assests/bmw.jpg
-                title={item.title}
+                title={item.name}
               />
             </CardActionArea>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                BMW
+                {item.name}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                {item.description}
-              </Typography>
+              {/* <Typography variant="h6" color="#000000" component="h6">
+                Creator: {item.creator.user.username}
+              </Typography> */}
             </CardContent>
-            <CardActions>
-              <Button href={item.opensea} size="small" color="primary">
+            <CardActions className={classes.buttons}>
+              <Button href={item.permalink} size="small" color="primary">
                 Opensea.io
               </Button>
               <Button size="small" color="primary">
