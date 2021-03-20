@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Box, Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -11,8 +11,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   container: {
-    height: "50vh",
-
     display: "flex",
     alignItems: "start",
     justifyContent: "center",

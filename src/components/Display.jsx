@@ -11,9 +11,7 @@ import {
   CardContent,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Bmw from "../assests/bmw.jpg";
-import Painting from "../assests/painting.jpg";
-import Anime from "../assests/anime.jpg";
+
 import axios from "axios";
 
 // import Wallpaper from "../assests/wallpaper.jpg";
